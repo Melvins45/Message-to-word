@@ -5,3 +5,143 @@ from PySide2.QtGui import (QBrush, QColor, QConicalGradient, QCursor, QFont,
     QRadialGradient, QResizeEvent)
 from PySide2.QtWidgets import *
 import sys, os, re
+import constants as gc
+import helpers as gf
+import sys
+import os
+from docx import Document
+import openpyxl
+import win32com.client
+
+def resource_path(relative_path):
+    try:
+        base_path = sys._MEIPASS2
+    except Exception:
+        base_path = os.path.abspath(".")
+
+    return os.path.join(base_path, relative_path)
+
+actualPage = list(gc.PAGES_TITLES.keys())[0]
+
+oShell = win32com.client.Dispatch("Wscript.Shell")
+pathToMyDocuments = oShell.SpecialFolders("MyDocuments")
+
+class ClassWindow(QMainWindow):
+    resized = Signal( QResizeEvent )
+    def __init__(self, parent = None) -> None:
+        super().__init__(parent)
+        if self.objectName():
+            self.setObjectName(list(gc.PAGES_TITLES.values())[0])
+        self.resize(678, 497)
+        icon = QIcon()
+        icon.addFile(u":/newPrefix/Message To Document 2.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.setWindowIcon(icon)
+        self.centralwidget = QWidget(self)
+        self.centralwidget.setObjectName(u"centralwidget")
+        self.horizontalLayout = QHBoxLayout(self.centralwidget)
+        self.horizontalLayout.setSpacing(0)
+        self.horizontalLayout.setObjectName(u"horizontalLayout")
+        self.horizontalLayout.setContentsMargins(0, 0, 0, 0)
+        self.stackedWidget = QStackedWidget(self.centralwidget)
+        self.stackedWidget.setObjectName(u"stackedWidget")
+
+        self.horizontalLayout.addWidget(self.stackedWidget)
+
+        self.setCentralWidget(self.centralwidget)
+
+        self.retranslateUi()
+
+        QMetaObject.connectSlotsByName(self)
+        
+    def resizeEvent(self, event: QResizeEvent) -> None:
+        self.resized.emit(event)
+        return super(ClassWindow, self).resizeEvent(event)
+
+    def retranslateUi(self):
+        self.setWindowTitle(QCoreApplication.translate("Message To Doc", list(gc.PAGES_TITLES.values())[0], None))
+    # retranslateUi
+    
+
+if __name__ == "__main__":
+    styleSheetFile = QFile( resource_path("style.qss") )
+    styleSheetFile.open(QIODevice.ReadOnly)
+    styleSheet = QTextStream(styleSheetFile).readAll()
+    form = QApplication(sys.argv)
+    form.setStyleSheet(styleSheet)
+    window = ClassWindow() #gf.load_ui("window")
+    #window.setWindowTitle( QCoreApplication.translate("Template", "Template", None) )
+    
+    def activePage(page: str) :
+        for _page in gc.PAGES.keys() :
+            if page == _page :
+                window.__getattribute__(page).m_ui.__getattribute__(_page).setStyleSheet(headerButtonActiveStyle)
+            else :
+                window.__getattribute__(page).m_ui.__getattribute__(_page).setStyleSheet(headerButtonStyle)
+                
+    def compile_to_word():
+        """Compile the QPlainTextEdit's text to a Microsoft Word Document
+        """        
+        title_doc = window.word.m_ui.titleEdit.text() if window.word.m_ui.titleEdit.text()!='' else gc.DEFAULT_TITLES_DOC["word"]
+        doc = Document(resource_path("template.docx"))
+        doc.add_heading(title_doc, 0)
+        doc.add_page_break()
+        for paragraph in gf.treat_text(window.word.m_ui.messageEdit.toPlainText()) :
+            doc.add_heading(gf.take_title(paragraph)[0], 1)
+            doc.add_paragraph(gf.take_title(paragraph)[1])
+        #print(QFileDialog.getSaveFileName(None, gc.FILE_DIALOG_CAPTION, "", "Microsoft Word Files (*.docx)"))
+        pathWhereSave = QFileDialog.getSaveFileName(None, gc.FILE_DIALOG_CAPTION, os.path.join( pathToMyDocuments, f"{title_doc}.docx" ), "Microsoft Word Files (*.docx)")
+        doc.save(pathWhereSave[0] if pathWhereSave[0] != '' else title_doc+".docx" )
+        
+    def compile_to_excel():
+        title_doc = window.excel.m_ui.titleEdit.text() if window.excel.m_ui.titleEdit.text()!='' else gc.DEFAULT_TITLES_DOC["excel"]
+        docExcel = openpyxl.Workbook()
+        doc = docExcel.worksheets[0]
+        text = gf.treat_text_excel(window.excel.m_ui.messageEdit.toPlainText(), window.excel.m_ui.delimiterEdit.text()) 
+        for row in text :
+            doc.append(row)
+        pathWhereSave = QFileDialog.getSaveFileName(None, gc.FILE_DIALOG_CAPTION, os.path.join( pathToMyDocuments, f"{title_doc}.xlsx" ), "Microsoft Excel Files (*.xlsx *.xls)")
+        docExcel.save(pathWhereSave[0] if pathWhereSave[0] != '' else title_doc+".xlsx" )
+        
+    def compile_to_pdf():
+        title_doc = window.pdf.m_ui.titleEdit.text() if window.pdf.m_ui.titleEdit.text()!='' else gc.DEFAULT_TITLES_DOC["pdf"]
+        pathWhereSave = QFileDialog.getSaveFileName(None, gc.FILE_DIALOG_CAPTION, os.path.join( pathToMyDocuments, f"{title_doc}.pdf" ), "PDF Files (*.pdf)")
+        gf.text_to_pdf(window.pdf.m_ui.messageEdit.toPlainText(), pathWhereSave[0] if pathWhereSave[0] != '' else title_doc+".pdf")
+    
+    def goToPage(page : str) :
+        """Go to the specified page
+
+        Args:
+            page (str): The destination page
+        """        
+        actualPage = page
+        window.setWindowTitle( QCoreApplication.translate("Message To Doc", gc.PAGES_TITLES[page], None) )
+        window.stackedWidget.setCurrentIndex(gc.PAGES_INDEX[page])
+        activePage(page)
+    
+    # Create pages and load ui files in it
+    window.__setattr__("word", gf.load_py("word"))
+    window.stackedWidget.addWidget(window.word)
+    window.word.m_ui.word.clicked.connect(lambda : goToPage("word"))
+    window.word.m_ui.excel.clicked.connect(lambda : goToPage("excel"))
+    window.word.m_ui.pdf.clicked.connect(lambda : goToPage("pdf"))
+    window.word.m_ui.compile.clicked.connect(lambda : compile_to_word())
+    window.__setattr__("excel", gf.load_py("excel"))
+    window.stackedWidget.addWidget(window.excel)
+    window.excel.m_ui.word.clicked.connect(lambda : goToPage("word"))
+    window.excel.m_ui.excel.clicked.connect(lambda : goToPage("excel"))
+    window.excel.m_ui.pdf.clicked.connect(lambda : goToPage("pdf"))
+    window.excel.m_ui.compile.clicked.connect(lambda : compile_to_excel())
+    window.__setattr__("pdf", gf.load_py("pdf"))
+    window.stackedWidget.addWidget(window.pdf)
+    window.pdf.m_ui.word.clicked.connect(lambda : goToPage("word"))
+    window.pdf.m_ui.excel.clicked.connect(lambda : goToPage("excel"))
+    window.pdf.m_ui.pdf.clicked.connect(lambda : goToPage("pdf"))
+    window.pdf.m_ui.compile.clicked.connect(lambda : compile_to_pdf())
+    
+    # Retrieve and change the styles of header's buttons
+    headerButtonStyle = window.pdf.m_ui.pdf.styleSheet()
+    headerButtonActiveStyle = headerButtonStyle + "color: rgb(79, 149, 190);"
+    window.word.m_ui.word.setStyleSheet(headerButtonActiveStyle)
+    
+    window.show()
+    form.exec_()

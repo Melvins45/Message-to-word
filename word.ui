@@ -229,6 +229,9 @@ border-radius: 12px;</string>
             <string notr="true">border: none;
 </string>
            </property>
+           <property name="placeholderText">
+            <string>Message Type : 1. [Titre du pararagraphe] : [Contenu du paragraphe]   2. [Titre du pararagraphe] : [Contenu du paragraphe] </string>
+           </property>
           </widget>
          </item>
         </layout>
