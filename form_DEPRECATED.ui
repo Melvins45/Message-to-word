@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>wordForm</class>
+ <widget class="QWidget" name="wordForm">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>686</width>
+    <height>529</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Compilez vers Word - Message To Doc</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>Images/Message To Document 2 - Copie.png</normaloff>Images/Message To Document 2 - Copie.png</iconset>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout" stretch="1,5">
+   <property name="spacing">
+    <number>0</number>
+   </property>
+   <property name="leftMargin">
+    <number>0</number>
+   </property>
+   <property name="topMargin">
+    <number>0</number>
+   </property>
+   <property name="rightMargin">
+    <number>0</number>
+   </property>
+   <property name="bottomMargin">
+    <number>0</number>
+   </property>
+   <item>
+    <widget class="QWidget" name="navbar" native="true">
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(244, 192, 79);</string>
+     </property>
+     <widget class="QLabel" name="image">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>10</y>
+        <width>81</width>
+        <height>71</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-radius: 12px;</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="pixmap">
+       <pixmap>Images/Message To Document 2.png</pixmap>
+      </property>
+      <property name="scaledContents">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QWidget" name="horizontalLayoutWidget">
+      <property name="geometry">
+       <rect>
+        <x>150</x>
+        <y>30</y>
+        <width>511</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <layout class="QHBoxLayout" name="navbarLayout">
+       <item>
+        <widget class="QLabel" name="excel">
+         <property name="font">
+          <font>
+           <family>Inter</family>
+           <pointsize>12</pointsize>
+          </font>
+         </property>
+         <property name="text">
+          <string>Compiler vers Excel</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="word">
+         <property name="font">
+          <font>
+           <family>Inter</family>
+           <pointsize>12</pointsize>
+          </font>
+         </property>
+         <property name="text">
+          <string>Compiler vers Word</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="pdf">
+         <property name="font">
+          <font>
+           <family>Inter</family>
+           <pointsize>12</pointsize>
+          </font>
+         </property>
+         <property name="text">
+          <string>Compiler vers PDF</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+   </item>
+   <item>
+    <widget class="QWidget" name="body" native="true">
+     <property name="styleSheet">
+      <string notr="true"/>
+     </property>
+     <layout class="QHBoxLayout" name="horizontalLayout_2" stretch="1,1">
+      <property name="spacing">
+       <number>0</number>
+      </property>
+      <property name="leftMargin">
+       <number>0</number>
+      </property>
+      <property name="topMargin">
+       <number>0</number>
+      </property>
+      <property name="rightMargin">
+       <number>0</number>
+      </property>
+      <property name="bottomMargin">
+       <number>0</number>
+      </property>
+      <item>
+       <widget class="QWidget" name="messageInput" native="true">
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(217, 217, 217);</string>
+        </property>
+        <layout class="QVBoxLayout" name="verticalLayout_2" stretch="1,7">
+         <property name="spacing">
+          <number>0</number>
+         </property>
+         <property name="leftMargin">
+          <number>0</number>
+         </property>
+         <property name="topMargin">
+          <number>0</number>
+         </property>
+         <property name="rightMargin">
+          <number>0</number>
+         </property>
+         <property name="bottomMargin">
+          <number>0</number>
+         </property>
+         <item>
+          <widget class="QWidget" name="messageBox" native="true">
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(79, 149, 190);</string>
+           </property>
+           <layout class="QHBoxLayout" name="horizontalLayout">
+            <item>
+             <widget class="QLabel" name="messageLabel">
+              <property name="font">
+               <font>
+                <family>Inter</family>
+                <pointsize>12</pointsize>
+               </font>
+              </property>
+              <property name="text">
+               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Message à utiliser &lt;span style=&quot; color:#ff0000;&quot;&gt;*&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPlainTextEdit" name="messageEdit">
+           <property name="font">
+            <font>
+             <pointsize>10</pointsize>
+            </font>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <item>
+       <widget class="QWidget" name="centralPart" native="true">
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(255, 255, 255);
+</string>
+        </property>
+        <layout class="QVBoxLayout" name="verticalLayout_4" stretch="1,4,1">
+         <property name="spacing">
+          <number>6</number>
+         </property>
+         <property name="bottomMargin">
+          <number>20</number>
+         </property>
+         <item>
+          <widget class="QWidget" name="inputBox" native="true">
+           <layout class="QVBoxLayout" name="verticalLayout_3" stretch="1,3">
+            <property name="spacing">
+             <number>0</number>
+            </property>
+            <property name="leftMargin">
+             <number>0</number>
+            </property>
+            <property name="topMargin">
+             <number>0</number>
+            </property>
+            <property name="rightMargin">
+             <number>0</number>
+            </property>
+            <property name="bottomMargin">
+             <number>0</number>
+            </property>
+            <item>
+             <widget class="QLabel" name="title">
+              <property name="font">
+               <font>
+                <family>Inter</family>
+                <pointsize>12</pointsize>
+               </font>
+              </property>
+              <property name="text">
+               <string>Titre du document&lt;font color=&quot;red&quot;&gt;*&lt;/font&gt;</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLineEdit" name="titleEdit">
+              <property name="font">
+               <font>
+                <pointsize>10</pointsize>
+               </font>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">border: 5px solid rgb(244, 192, 79);
+border-radius: 16px;</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="info">
+           <property name="font">
+            <font>
+             <family>Inter</family>
+             <pointsize>10</pointsize>
+            </font>
+           </property>
+           <property name="text">
+            <string>Pour faciliter la transformation en document structuré Word, assurez-vous d'utiliser une structure cohérente dans votre message texte. Utilisez des numéros ou des lettres pour identifier les différentes parties de votre message et gardez la même structure tout au long du document. Cela permettra à l'application de créer un document Word bien structuré et facile à lire.</string>
+           </property>
+           <property name="wordWrap">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="compile">
+           <property name="font">
+            <font>
+             <family>Inter</family>
+             <pointsize>12</pointsize>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(244, 192, 79);
+border-radius: 16px;
+</string>
+           </property>
+           <property name="text">
+            <string>Transformer en docx</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>titleEdit</sender>
+   <signal>returnPressed()</signal>
+   <receiver>compile</receiver>
+   <slot>animateClick()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>401</x>
+     <y>156</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>427</x>
+     <y>504</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>
