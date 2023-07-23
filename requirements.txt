@@ -1,0 +1,5 @@
+fpdf
+PySide2
+openpyxl
+pyinstaller
+python-docx
