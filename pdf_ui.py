@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'excel.ui'
+## Form generated from reading UI file 'pdf.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.2
 ##
@@ -14,20 +14,19 @@ from PySide2.QtWidgets import *
 
 import icon_rc
 
-class Ui_excelForm(object):
-    def setupUi(self, excelForm):
-        if not excelForm.objectName():
-            excelForm.setObjectName(u"excelForm")
-        excelForm.resize(686, 529)
-        excelForm.setMinimumSize(QSize(0, 529))
+class Ui_pdfForm(object):
+    def setupUi(self, pdfForm):
+        if not pdfForm.objectName():
+            pdfForm.setObjectName(u"pdfForm")
+        pdfForm.resize(686, 531)
         icon1 = QIcon()
         icon1.addFile(u"Images/Message To Document 2 - Copie.png", QSize(), QIcon.Normal, QIcon.Off)
-        excelForm.setWindowIcon(icon1)
-        self.verticalLayout = QVBoxLayout(excelForm)
+        pdfForm.setWindowIcon(icon1)
+        self.verticalLayout = QVBoxLayout(pdfForm)
         self.verticalLayout.setSpacing(0)
         self.verticalLayout.setObjectName(u"verticalLayout")
         self.verticalLayout.setContentsMargins(0, 0, 0, 0)
-        self.navbar = QWidget(excelForm)
+        self.navbar = QWidget(pdfForm)
         self.navbar.setObjectName(u"navbar")
         self.navbar.setStyleSheet(u"background-color: rgb(244, 192, 79);")
         self.horizontalLayout_3 = QHBoxLayout(self.navbar)
@@ -87,7 +86,7 @@ class Ui_excelForm(object):
 
         self.verticalLayout.addWidget(self.navbar)
 
-        self.body = QWidget(excelForm)
+        self.body = QWidget(pdfForm)
         self.body.setObjectName(u"body")
         self.body.setStyleSheet(u"")
         self.horizontalLayout_2 = QHBoxLayout(self.body)
@@ -130,7 +129,6 @@ class Ui_excelForm(object):
         self.takeFileTxt.setObjectName(u"takeFileTxt")
         sizePolicy.setHeightForWidth(self.takeFileTxt.sizePolicy().hasHeightForWidth())
         self.takeFileTxt.setSizePolicy(sizePolicy)
-        self.takeFileTxt.setMinimumSize(QSize(0, 0))
         self.takeFileTxt.setFont(font)
         self.takeFileTxt.setStyleSheet(u"background-color: rgb(79, 149, 190);\n"
 "border: none;")
@@ -145,7 +143,8 @@ class Ui_excelForm(object):
 
         self.centralPart = QWidget(self.body)
         self.centralPart.setObjectName(u"centralPart")
-        self.centralPart.setStyleSheet(u"background-color: rgb(255, 255, 255);")
+        self.centralPart.setStyleSheet(u"background-color: rgb(255, 255, 255);\n"
+"")
         self.verticalLayout_4 = QVBoxLayout(self.centralPart)
         self.verticalLayout_4.setSpacing(6)
         self.verticalLayout_4.setObjectName(u"verticalLayout_4")
@@ -178,49 +177,21 @@ class Ui_excelForm(object):
 
         self.verticalLayout_4.addWidget(self.inputBox)
 
-        self.inputBox_2 = QWidget(self.centralPart)
-        self.inputBox_2.setObjectName(u"inputBox_2")
-        self.verticalLayout_5 = QVBoxLayout(self.inputBox_2)
-        self.verticalLayout_5.setSpacing(6)
-        self.verticalLayout_5.setObjectName(u"verticalLayout_5")
-        self.verticalLayout_5.setContentsMargins(0, 0, 0, 0)
-        self.delimiter = QLabel(self.inputBox_2)
-        self.delimiter.setObjectName(u"delimiter")
-        self.delimiter.setFont(font)
-        self.delimiter.setAlignment(Qt.AlignCenter)
-
-        self.verticalLayout_5.addWidget(self.delimiter)
-
-        self.delimiterEdit = QLineEdit(self.inputBox_2)
-        self.delimiterEdit.setObjectName(u"delimiterEdit")
-        sizePolicy.setHeightForWidth(self.delimiterEdit.sizePolicy().hasHeightForWidth())
-        self.delimiterEdit.setSizePolicy(sizePolicy)
-        self.delimiterEdit.setFont(font1)
-        self.delimiterEdit.setStyleSheet(u"border: 5px solid rgb(244, 192, 79);\n"
-"border-radius: 16px;")
-
-        self.verticalLayout_5.addWidget(self.delimiterEdit)
-
-        self.verticalLayout_5.setStretch(0, 1)
-        self.verticalLayout_5.setStretch(1, 3)
-
-        self.verticalLayout_4.addWidget(self.inputBox_2)
-
         self.horizontalLayout_4 = QHBoxLayout()
         self.horizontalLayout_4.setObjectName(u"horizontalLayout_4")
         self.horizontalSpacer_3 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
         self.horizontalLayout_4.addItem(self.horizontalSpacer_3)
 
-        self.totalColumn = QCheckBox(self.centralPart)
-        self.totalColumn.setObjectName(u"totalColumn")
+        self.wordConvert = QCheckBox(self.centralPart)
+        self.wordConvert.setObjectName(u"wordConvert")
         font2 = QFont()
         font2.setFamily(u"Inter")
         font2.setPointSize(10)
-        self.totalColumn.setFont(font2)
-        self.totalColumn.setStyleSheet(u"")
+        self.wordConvert.setFont(font2)
+        self.wordConvert.setStyleSheet(u"")
 
-        self.horizontalLayout_4.addWidget(self.totalColumn)
+        self.horizontalLayout_4.addWidget(self.wordConvert)
 
         self.horizontalSpacer_2 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
@@ -247,10 +218,9 @@ class Ui_excelForm(object):
 
         self.verticalLayout_4.addWidget(self.compile)
 
-        self.verticalLayout_4.setStretch(0, 3)
-        self.verticalLayout_4.setStretch(1, 3)
-        self.verticalLayout_4.setStretch(3, 9)
-        self.verticalLayout_4.setStretch(4, 2)
+        self.verticalLayout_4.setStretch(0, 2)
+        self.verticalLayout_4.setStretch(2, 9)
+        self.verticalLayout_4.setStretch(3, 1)
 
         self.horizontalLayout_2.addWidget(self.centralPart)
 
@@ -262,25 +232,23 @@ class Ui_excelForm(object):
         self.verticalLayout.setStretch(0, 1)
         self.verticalLayout.setStretch(1, 6)
 
-        self.retranslateUi(excelForm)
+        self.retranslateUi(pdfForm)
         self.titleEdit.returnPressed.connect(self.compile.animateClick)
 
-        QMetaObject.connectSlotsByName(excelForm)
+        QMetaObject.connectSlotsByName(pdfForm)
     # setupUi
 
-    def retranslateUi(self, excelForm):
-        excelForm.setWindowTitle(QCoreApplication.translate("excelForm", u"Compilez vers Excel - Message To Doc", None))
+    def retranslateUi(self, pdfForm):
+        pdfForm.setWindowTitle(QCoreApplication.translate("pdfForm", u"Compilez vers PDF - Message To Doc", None))
         self.icon.setText("")
-        self.excel.setText(QCoreApplication.translate("excelForm", u"Compiler vers Excel", None))
-        self.word.setText(QCoreApplication.translate("excelForm", u"Compiler vers Word", None))
-        self.pdf.setText(QCoreApplication.translate("excelForm", u"Compiler vers PDF", None))
-        self.messageLabel.setText(QCoreApplication.translate("excelForm", u"<html><head/><body><p>Message \u00e0 utiliser <span style=\" color:#ff0000;\">*</span></p></body></html>", None))
-        self.takeFileTxt.setText(QCoreApplication.translate("excelForm", u"Importer un fichier txt", None))
-        self.title.setText(QCoreApplication.translate("excelForm", u"<html><head/><body><p>Titre du document <span style=\" color:#ff0000;\">*</span></p></body></html>", None))
-        self.delimiter.setText(QCoreApplication.translate("excelForm", u"<html><head/><body><p><span style=\" color:#000000;\">D\u00e9limiteur de cellules</span><span style=\" color:#ff0000;\"> *</span></p></body></html>", None))
-        self.delimiterEdit.setPlaceholderText(QCoreApplication.translate("excelForm", u"Virgule par d\u00e9faut", None))
-        self.totalColumn.setText(QCoreApplication.translate("excelForm", u"Ajouter une colonne de total", None))
-        self.info.setText(QCoreApplication.translate("excelForm", u" Pour faciliter la transformation de votre message texte en document Excel, assurez-vous d'utiliser un d\u00e9limiteur de cellules coh\u00e9rent dans tout votre message. Indiquez clairement le d\u00e9limiteur que vous avez utilis\u00e9 dans le formulaire, pour que notre application puisse l'identifier facilement et cr\u00e9er un document Excel bien structur\u00e9.", None))
-        self.compile.setText(QCoreApplication.translate("excelForm", u"Transformer en xlsx", None))
+        self.excel.setText(QCoreApplication.translate("pdfForm", u"Compiler vers Excel", None))
+        self.word.setText(QCoreApplication.translate("pdfForm", u"Compiler vers Word", None))
+        self.pdf.setText(QCoreApplication.translate("pdfForm", u"Compiler vers PDF", None))
+        self.messageLabel.setText(QCoreApplication.translate("pdfForm", u"<html><head/><body><p>Message \u00e0 utiliser <span style=\" color:#ff0000;\">*</span></p></body></html>", None))
+        self.takeFileTxt.setText(QCoreApplication.translate("pdfForm", u"Importer un fichier txt", None))
+        self.title.setText(QCoreApplication.translate("pdfForm", u"<html><head/><body><p>Titre du document <span style=\" color:#ff0000;\">*</span></p></body></html>", None))
+        self.wordConvert.setText(QCoreApplication.translate("pdfForm", u"Pr\u00e9convertir d'abord en Word", None))
+        self.info.setText(QCoreApplication.translate("pdfForm", u"<html><head/><body><p>Pour faciliter la transformation en document structur\u00e9 PDF, assurez-vous d'utiliser une structure coh\u00e9rente dans votre message texte. Utilisez des num\u00e9ros ou des lettres pour identifier les diff\u00e9rentes parties de votre message et gardez la m\u00eame structure tout au long du document. Cela permettra \u00e0 l'application de cr\u00e9er un document PDF bien structur\u00e9 et facile \u00e0 lire.</p></body></html>", None))
+        self.compile.setText(QCoreApplication.translate("pdfForm", u"Transformer en PDF", None))
     # retranslateUi
 

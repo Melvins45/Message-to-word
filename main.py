@@ -12,6 +12,8 @@ import os
 from docx import Document
 import openpyxl
 import win32com.client
+from math import modf
+from docx2pdf import convert
 
 def resource_path(relative_path):
     try:
@@ -85,27 +87,49 @@ if __name__ == "__main__":
         doc = Document(resource_path("template.docx"))
         doc.add_heading(title_doc, 0)
         doc.add_page_break()
-        for paragraph in gf.treat_text(window.word.m_ui.messageEdit.toPlainText()) :
-            doc.add_heading(gf.take_title(paragraph)[0], 1)
-            doc.add_paragraph(gf.take_title(paragraph)[1])
+        text_treated = gf.treat_text(window.word.m_ui.messageEdit.toPlainText())
+        #print(text_treated)
+        for i in text_treated.keys():
+            doc.add_heading(text_treated[i]["title"] , 1 if modf(float(i))[0] == 0 else 2 )
+            for j in text_treated[i]["content"] :
+                if text_treated[i]["content"][j]["type"] == "normal" :
+                    paragraph = doc.add_paragraph(text_treated[i]["content"][j]["content"])
+                else :
+                    for k in range(len(text_treated[i]["content"][j]["content"])) :
+                        paragraph = doc.add_paragraph(text_treated[i]["content"][j]["content"][k], style = text_treated[i]["content"][j]["type"])
         #print(QFileDialog.getSaveFileName(None, gc.FILE_DIALOG_CAPTION, "", "Microsoft Word Files (*.docx)"))
         pathWhereSave = QFileDialog.getSaveFileName(None, gc.FILE_DIALOG_CAPTION, os.path.join( pathToMyDocuments, f"{title_doc}.docx" ), "Microsoft Word Files (*.docx)")
-        doc.save(pathWhereSave[0] if pathWhereSave[0] != '' else title_doc+".docx" )
+        if pathWhereSave[0] != '' :
+            doc.save(pathWhereSave[0])
         
     def compile_to_excel():
         title_doc = window.excel.m_ui.titleEdit.text() if window.excel.m_ui.titleEdit.text()!='' else gc.DEFAULT_TITLES_DOC["excel"]
+        shouldTotal = window.excel.m_ui.totalColumn.isChecked()
         docExcel = openpyxl.Workbook()
         doc = docExcel.worksheets[0]
-        text = gf.treat_text_excel(window.excel.m_ui.messageEdit.toPlainText(), window.excel.m_ui.delimiterEdit.text()) 
+        text = gf.treat_text_excel(window.excel.m_ui.messageEdit.toPlainText(), delimiter= window.excel.m_ui.delimiterEdit.text(), shouldTotal= shouldTotal) 
         for row in text :
             doc.append(row)
         pathWhereSave = QFileDialog.getSaveFileName(None, gc.FILE_DIALOG_CAPTION, os.path.join( pathToMyDocuments, f"{title_doc}.xlsx" ), "Microsoft Excel Files (*.xlsx *.xls)")
-        docExcel.save(pathWhereSave[0] if pathWhereSave[0] != '' else title_doc+".xlsx" )
+        if pathWhereSave[0] != '' :
+            docExcel.save(pathWhereSave[0])
         
     def compile_to_pdf():
         title_doc = window.pdf.m_ui.titleEdit.text() if window.pdf.m_ui.titleEdit.text()!='' else gc.DEFAULT_TITLES_DOC["pdf"]
+        shouldConvert = window.pdf.m_ui.wordConvert.isChecked()
         pathWhereSave = QFileDialog.getSaveFileName(None, gc.FILE_DIALOG_CAPTION, os.path.join( pathToMyDocuments, f"{title_doc}.pdf" ), "PDF Files (*.pdf)")
-        gf.text_to_pdf(window.pdf.m_ui.messageEdit.toPlainText(), pathWhereSave[0] if pathWhereSave[0] != '' else title_doc+".pdf")
+        if pathWhereSave[0] != '' :
+            if shouldConvert :
+                input_file = gf.compile_to_word(window.pdf.m_ui.messageEdit.toPlainText())
+                convert(input_file, pathWhereSave[0])
+            else :
+                gf.text_to_pdf(window.pdf.m_ui.messageEdit.toPlainText(), pathWhereSave[0])
+            
+    def importTxtFile(page) :
+        pathToExport = QFileDialog.getOpenFileName(None, gc.IMPORT_FILE_DIALOG_CAPTION, pathToMyDocuments, "TXT Files (*.txt *.csv)")
+        if pathToExport[0] != 0 :
+            with open(pathToExport[0]) as f :
+                window.__getattribute__(page).m_ui.messageEdit.setPlainText(f.read())
     
     def goToPage(page : str) :
         """Go to the specified page
@@ -137,6 +161,8 @@ if __name__ == "__main__":
     window.pdf.m_ui.excel.clicked.connect(lambda : goToPage("excel"))
     window.pdf.m_ui.pdf.clicked.connect(lambda : goToPage("pdf"))
     window.pdf.m_ui.compile.clicked.connect(lambda : compile_to_pdf())
+    for page in gc.PAGES.keys():
+        window.__getattribute__(page).m_ui.takeFileTxt.clicked.connect(lambda : importTxtFile(page))
     
     # Retrieve and change the styles of header's buttons
     headerButtonStyle = window.pdf.m_ui.pdf.styleSheet()

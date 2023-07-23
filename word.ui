@@ -177,7 +177,7 @@ border-radius: 12px;</string>
         <property name="styleSheet">
          <string notr="true">background-color: rgb(217, 217, 217);</string>
         </property>
-        <layout class="QVBoxLayout" name="verticalLayout_2" stretch="1,10">
+        <layout class="QVBoxLayout" name="verticalLayout_2" stretch="1,10,1">
          <property name="spacing">
           <number>0</number>
          </property>
@@ -231,6 +231,29 @@ border-radius: 12px;</string>
            </property>
            <property name="placeholderText">
             <string>Message Type : 1. [Titre du pararagraphe] : [Contenu du paragraphe]   2. [Titre du pararagraphe] : [Contenu du paragraphe] </string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="takeFileTxt">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Ignored" vsizetype="Ignored">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="font">
+            <font>
+             <family>Inter</family>
+             <pointsize>12</pointsize>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(79, 149, 190);
+border: none;</string>
+           </property>
+           <property name="text">
+            <string>Importer un fichier txt</string>
            </property>
           </widget>
          </item>

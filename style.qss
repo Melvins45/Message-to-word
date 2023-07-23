@@ -12,3 +12,19 @@ QLineEdit{
     padding-left: 5px;
     padding-right: 5px;
 }
+QCheckBox::indicator{
+    border-style: solid;
+    border-width: 1px;
+    border-color: rgb(244, 192, 79); 
+}
+QCheckBox::indicator:checked{
+    background-color: qradialgradient(spread:pad, 
+                            cx:0.5,
+                            cy:0.5,
+                            radius:0.9,
+                            fx:0.5,
+                            fy:0.5,
+                            stop:0 rgba(79, 149, 190, 255), 
+                            stop:1 rgba(10, 40, 90, 255));
+    border-color: rgb(79, 149, 190); 
+}

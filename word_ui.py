@@ -126,8 +126,19 @@ class Ui_wordForm(object):
 
         self.verticalLayout_2.addWidget(self.messageEdit)
 
+        self.takeFileTxt = QPushButton(self.messageInput)
+        self.takeFileTxt.setObjectName(u"takeFileTxt")
+        sizePolicy.setHeightForWidth(self.takeFileTxt.sizePolicy().hasHeightForWidth())
+        self.takeFileTxt.setSizePolicy(sizePolicy)
+        self.takeFileTxt.setFont(font)
+        self.takeFileTxt.setStyleSheet(u"background-color: rgb(79, 149, 190);\n"
+"border: none;")
+
+        self.verticalLayout_2.addWidget(self.takeFileTxt)
+
         self.verticalLayout_2.setStretch(0, 1)
         self.verticalLayout_2.setStretch(1, 10)
+        self.verticalLayout_2.setStretch(2, 1)
 
         self.horizontalLayout_2.addWidget(self.messageInput)
 
@@ -216,6 +227,7 @@ class Ui_wordForm(object):
         self.pdf.setText(QCoreApplication.translate("wordForm", u"Compiler vers PDF", None))
         self.messageLabel.setText(QCoreApplication.translate("wordForm", u"<html><head/><body><p>Message \u00e0 utiliser <span style=\" color:#ff0000;\">*</span></p></body></html>", None))
         self.messageEdit.setPlaceholderText(QCoreApplication.translate("wordForm", u"Message Type : 1. [Titre du pararagraphe] : [Contenu du paragraphe]   2. [Titre du pararagraphe] : [Contenu du paragraphe] ", None))
+        self.takeFileTxt.setText(QCoreApplication.translate("wordForm", u"Importer un fichier txt", None))
         self.title.setText(QCoreApplication.translate("wordForm", u"<html><head/><body><p>Titre du document <span style=\" color:#ff0000;\">*</span></p></body></html>", None))
         self.info.setText(QCoreApplication.translate("wordForm", u"Pour faciliter la transformation en document structur\u00e9 Word, assurez-vous d'utiliser une structure coh\u00e9rente dans votre message texte. Utilisez des num\u00e9ros ou des lettres pour identifier les diff\u00e9rentes parties de votre message et gardez la m\u00eame structure tout au long du document. Cela permettra \u00e0 l'application de cr\u00e9er un document Word bien structur\u00e9 et facile \u00e0 lire.", None))
         self.compile.setText(QCoreApplication.translate("wordForm", u"Transformer en docx", None))

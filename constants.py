@@ -1,5 +1,5 @@
 import os
-import Ui_excel, Ui_pdf, Ui_word
+import pdf_ui, excel_ui, word_ui
 
 DATETIME_FORMAT = "%Y-%m-%d %H:%M:%S"
 GLOBAL_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -11,9 +11,9 @@ PAGES = {
 }
 
 PAGES_UI = {
-    "word" : Ui_word.Ui_wordForm(),
-    "excel" : Ui_excel.Ui_excelForm(),
-    "pdf" : Ui_pdf.Ui_pdfForm()
+    "word" : word_ui.Ui_wordForm(),
+    "excel" : excel_ui.Ui_excelForm(),
+    "pdf" : pdf_ui.Ui_pdfForm()
 }
 
 PAGES_INDEX = {
@@ -29,6 +29,7 @@ PAGES_TITLES = {
 }
 
 FILE_DIALOG_CAPTION = "Enregistrez sous - Message To Doc"
+IMPORT_FILE_DIALOG_CAPTION = "Choisissez le fichier - Message To Doc"
 
 DEFAULT_TITLES_DOC = {
     "word" : "Document",

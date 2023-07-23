@@ -177,7 +177,7 @@ border-radius: 12px;</string>
         <property name="styleSheet">
          <string notr="true">background-color: rgb(217, 217, 217);</string>
         </property>
-        <layout class="QVBoxLayout" name="verticalLayout_2" stretch="1,10">
+        <layout class="QVBoxLayout" name="verticalLayout_2" stretch="1,10,1">
          <property name="spacing">
           <number>0</number>
          </property>
@@ -231,16 +231,44 @@ border-radius: 12px;</string>
            </property>
           </widget>
          </item>
+         <item>
+          <widget class="QPushButton" name="takeFileTxt">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Ignored" vsizetype="Ignored">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>0</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <family>Inter</family>
+             <pointsize>12</pointsize>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(79, 149, 190);
+border: none;</string>
+           </property>
+           <property name="text">
+            <string>Importer un fichier txt</string>
+           </property>
+          </widget>
+         </item>
         </layout>
        </widget>
       </item>
       <item>
        <widget class="QWidget" name="centralPart" native="true">
         <property name="styleSheet">
-         <string notr="true">background-color: rgb(255, 255, 255);
-</string>
+         <string notr="true">background-color: rgb(255, 255, 255);</string>
         </property>
-        <layout class="QVBoxLayout" name="verticalLayout_4" stretch="3,3,12,2">
+        <layout class="QVBoxLayout" name="verticalLayout_4" stretch="3,3,0,9,2">
          <property name="spacing">
           <number>6</number>
          </property>
@@ -361,6 +389,52 @@ border-radius: 16px;</string>
             </item>
            </layout>
           </widget>
+         </item>
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout_4" stretch="0,0,0">
+           <item>
+            <spacer name="horizontalSpacer_3">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item>
+            <widget class="QCheckBox" name="totalColumn">
+             <property name="font">
+              <font>
+               <family>Inter</family>
+               <pointsize>10</pointsize>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true"/>
+             </property>
+             <property name="text">
+              <string>Ajouter une colonne de total</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <spacer name="horizontalSpacer_2">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+          </layout>
          </item>
          <item>
           <widget class="QLabel" name="info">

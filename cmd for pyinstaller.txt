@@ -1,1 +1,1 @@
-pyinstaller --name tmp --onefile --windowed --icon icon.ico main.py
+pyinstaller --name "Message To Word" --onefile --windowed --icon icon.ico main.py
