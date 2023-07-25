@@ -5,7 +5,7 @@
 #define MyAppVersion "1.0.2"
 #define MyAppPublisher "Melvins"
 #define MyAppURL "https://www.melvinsbro.com/"
-#define MyAppExeName "Message To Doc.exe"
+#define MyAppExeName "Message To Doc 4.exe"
 
 [Setup]
 ; NOTE: The value of AppId uniquely identifies this application. Do not use the same AppId value in installers for other applications.

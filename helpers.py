@@ -115,11 +115,12 @@ def treat_text(_text: str) -> dict[float:dict[str:str]] :
     #print(text_treated)
     for _paragraph in text:
         
-        left_delimiter = re.findall(r'\d{1,3}\. ', _paragraph)
-        left_delimiter_2 = re.findall(r' \d{1,3}\. ', _paragraph)
-        left_delimiter_int = int(re.findall(r'\d', left_delimiter[0])[0])
+        left_delimiter = re.findall(r'\d{1,3}\. ', _paragraph) if len(re.findall(r'\d{1,3}\. ', _paragraph)) > 0 else re.findall(r'\d{1,3}\.', _paragraph)
+        left_delimiter_2 = re.findall(r' \d{1,3}\. ', _paragraph) if len(re.findall(r' \d{1,3}\. ', _paragraph)) > 0 else re.findall(r' \d{1,3}\.', _paragraph)
+        #if len(left_delimiter) > 0 or len(left_delimiter_2) > 0 :
+        left_delimiter_int = int(re.findall(r'\d', left_delimiter[0])[0]) if len(left_delimiter) > 0 else 0
         left_delimiter_int_2 = int(re.findall(r'\d', left_delimiter_2[0])[0]) if len(left_delimiter_2) != 0 else 0
-        actual_higher_level = left_delimiter_int if left_delimiter_int_2 == 0 else actual_higher_level
+        actual_higher_level = ( left_delimiter_int if left_delimiter_int != 0 else actual_higher_level ) if left_delimiter_int_2 == 0 else actual_higher_level
         list_index.append( actual_higher_level if left_delimiter_int_2 == 0 else concatNumbersToFloat(actual_higher_level, left_delimiter_int_2)  )
     
     # Create an object for the text and fill it along the list of index
@@ -128,14 +129,20 @@ def treat_text(_text: str) -> dict[float:dict[str:str]] :
     for _paragraph in text:
         
         left_delimiter = re.findall(r'\d{1,3}\. ', _paragraph)
-        left_delimiter_int = int(re.findall(r'\d', left_delimiter[0])[0])
-        right_delimiter = re.findall( r':\n([\s\S]*)' ,_paragraph)
+        left_delimiter_2 = re.findall(r'\d{1,3}\.', _paragraph)
+        #left_delimiter_int = int(re.findall(r'\d', left_delimiter[0])[0])
+        #left_delimiter_int_2 = int(re.findall(r'\d', left_delimiter_2[0])[0])
+        right_delimiter = re.findall( r':([\s\S]*)' ,_paragraph)
+        right_delimiter_2 = re.findall( r'\n([\s\S]*)' ,_paragraph)
         
-        pattern_string = ( re.escape(left_delimiter[0]) if len(left_delimiter) != 0 else '' ) + "(.*:)" #+ ( re.escape(right_delimiter[0]) if len(right_delimiter) != 0 else '' )
+        left_string = left_delimiter[0] if len(left_delimiter) != 0 else left_delimiter_2[0] if len(left_delimiter_2) != 0 else ''
+        pattern_string = ( re.escape(left_string) ) + "(.*:)"
+        pattern_string_2 = ( re.escape(left_string) ) + "(.*)"
         pattern = re.compile(pattern_string)
-        title = pattern.findall(_paragraph)[0]
+        pattern_2 = re.compile(pattern_string_2)
+        title = pattern.findall(_paragraph)[0] if len(pattern.findall(_paragraph)) > 0 else pattern_2.findall(_paragraph)[0]
         
-        splitted_paragraph = right_delimiter[0].splitlines(True)
+        splitted_paragraph = right_delimiter[0].splitlines(True) if len(right_delimiter) > 0 else right_delimiter_2[0].splitlines(True)
         paragraph_treated = {}
         actual_paragraph_position = 0
         for i in range(len(splitted_paragraph)) :
@@ -184,8 +191,8 @@ def order_text(_text: list[str], i: int = 0) -> list[str]:
     Returns:
         list[str]: A list of ordered paragraphs of the splitted text
     """    
-    if not bool(re.search(r'\d\. ', _text[i])) :
-        if i != 0 and bool(re.search(r'\d\. ', _text[i-1])) :
+    if not bool(re.search(r'\d\.', _text[i])) :
+        if i != 0 and bool(re.search(r'\d\.', _text[i-1])) :
             _text[i-1] += _text[i] # f"""{_text[i-1]} \n {_text[i]} """
             _text[i] = ''
             _text = [ i for i in _text if i!='' ]

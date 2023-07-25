@@ -72,7 +72,7 @@
          </size>
         </property>
         <property name="styleSheet">
-         <string notr="true">border-image: url(:/newPrefix/Message To Document 2.png);
+         <string notr="true">border-image: url(:/newPrefix/Message To Document 21.png);
 border-radius: 12px;</string>
         </property>
         <property name="text">
@@ -106,6 +106,9 @@ border-radius: 12px;</string>
             <pointsize>12</pointsize>
            </font>
           </property>
+          <property name="cursor">
+           <cursorShape>PointingHandCursor</cursorShape>
+          </property>
           <property name="styleSheet">
            <string notr="true">border: none;</string>
           </property>
@@ -122,6 +125,9 @@ border-radius: 12px;</string>
             <pointsize>12</pointsize>
            </font>
           </property>
+          <property name="cursor">
+           <cursorShape>PointingHandCursor</cursorShape>
+          </property>
           <property name="styleSheet">
            <string notr="true">border: none;</string>
           </property>
@@ -137,6 +143,9 @@ border-radius: 12px;</string>
             <family>Inter</family>
             <pointsize>12</pointsize>
            </font>
+          </property>
+          <property name="cursor">
+           <cursorShape>PointingHandCursor</cursorShape>
           </property>
           <property name="styleSheet">
            <string notr="true">border: none;</string>
@@ -250,6 +259,9 @@ border-radius: 12px;</string>
              <family>Inter</family>
              <pointsize>12</pointsize>
             </font>
+           </property>
+           <property name="cursor">
+            <cursorShape>PointingHandCursor</cursorShape>
            </property>
            <property name="styleSheet">
             <string notr="true">background-color: rgb(79, 149, 190);
@@ -413,6 +425,9 @@ border-radius: 16px;</string>
                <pointsize>10</pointsize>
               </font>
              </property>
+             <property name="cursor">
+              <cursorShape>PointingHandCursor</cursorShape>
+             </property>
              <property name="styleSheet">
               <string notr="true"/>
              </property>
@@ -465,6 +480,9 @@ border-radius: 16px;</string>
              <family>Inter</family>
              <pointsize>12</pointsize>
             </font>
+           </property>
+           <property name="cursor">
+            <cursorShape>PointingHandCursor</cursorShape>
            </property>
            <property name="styleSheet">
             <string notr="true">background-color: rgb(244, 192, 79);

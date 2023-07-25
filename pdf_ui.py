@@ -41,7 +41,7 @@ class Ui_pdfForm(object):
         self.icon.setSizePolicy(sizePolicy)
         self.icon.setMinimumSize(QSize(62, 58))
         self.icon.setMaximumSize(QSize(91, 85))
-        self.icon.setStyleSheet(u"border-image: url(:/newPrefix/Message To Document 2.png);\n"
+        self.icon.setStyleSheet(u"border-image: url(:/newPrefix/Message To Document 21.png);\n"
 "border-radius: 12px;")
 
         self.horizontalLayout_3.addWidget(self.icon)
@@ -59,6 +59,7 @@ class Ui_pdfForm(object):
         font.setFamily(u"Inter")
         font.setPointSize(12)
         self.excel.setFont(font)
+        self.excel.setCursor(QCursor(Qt.PointingHandCursor))
         self.excel.setStyleSheet(u"border: none;")
 
         self.navbarLayout.addWidget(self.excel)
@@ -66,6 +67,7 @@ class Ui_pdfForm(object):
         self.word = QPushButton(self.navbar)
         self.word.setObjectName(u"word")
         self.word.setFont(font)
+        self.word.setCursor(QCursor(Qt.PointingHandCursor))
         self.word.setStyleSheet(u"border: none;")
 
         self.navbarLayout.addWidget(self.word)
@@ -73,6 +75,7 @@ class Ui_pdfForm(object):
         self.pdf = QPushButton(self.navbar)
         self.pdf.setObjectName(u"pdf")
         self.pdf.setFont(font)
+        self.pdf.setCursor(QCursor(Qt.PointingHandCursor))
         self.pdf.setStyleSheet(u"border: none;")
 
         self.navbarLayout.addWidget(self.pdf)
@@ -130,6 +133,7 @@ class Ui_pdfForm(object):
         sizePolicy.setHeightForWidth(self.takeFileTxt.sizePolicy().hasHeightForWidth())
         self.takeFileTxt.setSizePolicy(sizePolicy)
         self.takeFileTxt.setFont(font)
+        self.takeFileTxt.setCursor(QCursor(Qt.PointingHandCursor))
         self.takeFileTxt.setStyleSheet(u"background-color: rgb(79, 149, 190);\n"
 "border: none;")
 
@@ -189,6 +193,7 @@ class Ui_pdfForm(object):
         font2.setFamily(u"Inter")
         font2.setPointSize(10)
         self.wordConvert.setFont(font2)
+        self.wordConvert.setCursor(QCursor(Qt.PointingHandCursor))
         self.wordConvert.setStyleSheet(u"")
 
         self.horizontalLayout_4.addWidget(self.wordConvert)
@@ -212,6 +217,7 @@ class Ui_pdfForm(object):
         sizePolicy.setHeightForWidth(self.compile.sizePolicy().hasHeightForWidth())
         self.compile.setSizePolicy(sizePolicy)
         self.compile.setFont(font)
+        self.compile.setCursor(QCursor(Qt.PointingHandCursor))
         self.compile.setStyleSheet(u"background-color: rgb(244, 192, 79);\n"
 "border-radius: 16px;\n"
 "")

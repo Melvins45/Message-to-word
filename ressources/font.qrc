@@ -1,0 +1,5 @@
+<RCC>
+  <qresource prefix="Inter">
+    <file>inter.ttf</file>
+  </qresource>
+</RCC>

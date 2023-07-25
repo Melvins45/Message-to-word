@@ -2,7 +2,7 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 #define MyAppName "Message To Doc"
-#define MyAppVersion "1.0.2"
+#define MyAppVersion "1.0.1"
 #define MyAppPublisher "Melvins"
 #define MyAppURL "https://www.melvinsbro.com/"
 #define MyAppExeName "Message To Doc.exe"
@@ -26,7 +26,7 @@ InfoAfterFile=G:\3D Objects\Message to word\dist\info_after.txt
 ; Uncomment the following line to run in non administrative install mode (install for current user only.)
 ;PrivilegesRequired=lowest
 OutputDir=G:\3D Objects\Message to word
-OutputBaseFilename=Message_To_Doc_WINDOWS_x64_1.0.2
+OutputBaseFilename=Message_To_Doc_WINDOWS_x64_1.0.1
 SetupIconFile=G:\3D Objects\Message to word\icon.ico
 Compression=lzma
 SolidCompression=yes
@@ -41,9 +41,6 @@ Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{
 [Files]
 Source: "G:\3D Objects\Message to word\dist\{#MyAppExeName}"; DestDir: "{app}"; Flags: ignoreversion
 Source: "G:\3D Objects\Message to word\dist\style.qss"; DestDir: "{app}"; Flags: ignoreversion
-Source: "G:\3D Objects\Message to word\dist\template.docx"; DestDir: "{app}"; Flags: ignoreversion
-Source: "G:\3D Objects\Message to word\dist\fonts\*"; DestDir: "{app}\\fonts"; Flags: ignoreversion
-Source: "G:\3D Objects\Message to word\dist\Images\*"; DestDir: "{app}\\Images"; Flags: ignoreversion
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
 [Icons]

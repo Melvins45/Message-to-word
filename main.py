@@ -70,6 +70,9 @@ if __name__ == "__main__":
     styleSheet = QTextStream(styleSheetFile).readAll()
     form = QApplication(sys.argv)
     form.setStyleSheet(styleSheet)
+    fontDatabase = QFontDatabase()
+    fontDatabase.addApplicationFont(resource_path("fonts\\inter.ttf"))
+    form.setFont(QFont(fontDatabase.applicationFontFamilies(0)[0], 10))
     window = ClassWindow() #gf.load_ui("window")
     #window.setWindowTitle( QCoreApplication.translate("Template", "Template", None) )
     

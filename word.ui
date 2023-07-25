@@ -2,6 +2,9 @@
 <ui version="4.0">
  <class>wordForm</class>
  <widget class="QWidget" name="wordForm">
+  <property name="enabled">
+   <bool>true</bool>
+  </property>
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -21,7 +24,7 @@
   </property>
   <property name="windowIcon">
    <iconset>
-    <normaloff>Images/Message To Document 2 - Copie.png</normaloff>Images/Message To Document 2 - Copie.png</iconset>
+    <normaloff>C:/Users/user/.designer/backup/Images/Message To Document 2 - Copie.png</normaloff>C:/Users/user/.designer/backup/Images/Message To Document 2 - Copie.png</iconset>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout" stretch="1,6">
    <property name="spacing">
@@ -72,7 +75,7 @@
          </size>
         </property>
         <property name="styleSheet">
-         <string notr="true">border-image: url(:/newPrefix/Message To Document 2.png);
+         <string notr="true">border-image: url(:/newPrefix/Message To Document 21.png);
 border-radius: 12px;</string>
         </property>
         <property name="text">
@@ -106,6 +109,9 @@ border-radius: 12px;</string>
             <pointsize>12</pointsize>
            </font>
           </property>
+          <property name="cursor">
+           <cursorShape>PointingHandCursor</cursorShape>
+          </property>
           <property name="styleSheet">
            <string notr="true">border: none;</string>
           </property>
@@ -122,6 +128,9 @@ border-radius: 12px;</string>
             <pointsize>12</pointsize>
            </font>
           </property>
+          <property name="cursor">
+           <cursorShape>PointingHandCursor</cursorShape>
+          </property>
           <property name="styleSheet">
            <string notr="true">border: none;</string>
           </property>
@@ -137,6 +146,9 @@ border-radius: 12px;</string>
             <family>Inter</family>
             <pointsize>12</pointsize>
            </font>
+          </property>
+          <property name="cursor">
+           <cursorShape>PointingHandCursor</cursorShape>
           </property>
           <property name="styleSheet">
            <string notr="true">border: none;</string>
@@ -229,8 +241,22 @@ border-radius: 12px;</string>
             <string notr="true">border: none;
 </string>
            </property>
+           <property name="tabChangesFocus">
+            <bool>false</bool>
+           </property>
            <property name="placeholderText">
-            <string>Message Type : 1. [Titre du pararagraphe] : [Contenu du paragraphe]   2. [Titre du pararagraphe] : [Contenu du paragraphe] </string>
+            <string>Message Type :  
+1. [Titre du pararagraphe] : [Contenu du paragraphe]     
+2. [Titre du pararagraphe] : [Contenu du paragraphe]   
+Par exemple, le texte : 
+1. Bonjour : Le Monde 
+2. Bonjour : Le Monde  
+Donnera en Word : 
+I - Bonjour :         
+        Le Monde 
+II - Bonjour :
+        Le Monde
+         </string>
            </property>
           </widget>
          </item>
@@ -247,6 +273,9 @@ border-radius: 12px;</string>
              <family>Inter</family>
              <pointsize>12</pointsize>
             </font>
+           </property>
+           <property name="cursor">
+            <cursorShape>PointingHandCursor</cursorShape>
            </property>
            <property name="styleSheet">
             <string notr="true">background-color: rgb(79, 149, 190);
@@ -295,7 +324,6 @@ border: none;</string>
              <widget class="QLabel" name="title">
               <property name="font">
                <font>
-                <family>Inter</family>
                 <pointsize>12</pointsize>
                </font>
               </property>
@@ -359,6 +387,9 @@ border-radius: 16px;</string>
              <pointsize>12</pointsize>
             </font>
            </property>
+           <property name="cursor">
+            <cursorShape>PointingHandCursor</cursorShape>
+           </property>
            <property name="styleSheet">
             <string notr="true">background-color: rgb(244, 192, 79);
 border-radius: 16px;
@@ -379,6 +410,7 @@ border-radius: 16px;
  </widget>
  <resources>
   <include location="Images/icon.qrc"/>
+  <include location="ressources/font.qrc"/>
  </resources>
  <connections>
   <connection>
@@ -388,8 +420,8 @@ border-radius: 16px;
    <slot>animateClick()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>401</x>
-     <y>156</y>
+     <x>676</x>
+     <y>147</y>
     </hint>
     <hint type="destinationlabel">
      <x>427</x>

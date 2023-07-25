@@ -13,15 +13,17 @@ from PySide2.QtGui import *
 from PySide2.QtWidgets import *
 
 import icon_rc
+import font_rc
 
 class Ui_wordForm(object):
     def setupUi(self, wordForm):
         if not wordForm.objectName():
             wordForm.setObjectName(u"wordForm")
+        wordForm.setEnabled(True)
         wordForm.resize(686, 529)
         wordForm.setMinimumSize(QSize(0, 529))
         icon1 = QIcon()
-        icon1.addFile(u"Images/Message To Document 2 - Copie.png", QSize(), QIcon.Normal, QIcon.Off)
+        icon1.addFile(u"C:/Users/user/.designer/backup/Images/Message To Document 2 - Copie.png", QSize(), QIcon.Normal, QIcon.Off)
         wordForm.setWindowIcon(icon1)
         self.verticalLayout = QVBoxLayout(wordForm)
         self.verticalLayout.setSpacing(0)
@@ -42,7 +44,7 @@ class Ui_wordForm(object):
         self.icon.setSizePolicy(sizePolicy)
         self.icon.setMinimumSize(QSize(62, 58))
         self.icon.setMaximumSize(QSize(91, 85))
-        self.icon.setStyleSheet(u"border-image: url(:/newPrefix/Message To Document 2.png);\n"
+        self.icon.setStyleSheet(u"border-image: url(:/newPrefix/Message To Document 21.png);\n"
 "border-radius: 12px;")
 
         self.horizontalLayout_3.addWidget(self.icon)
@@ -60,6 +62,7 @@ class Ui_wordForm(object):
         font.setFamily(u"Inter")
         font.setPointSize(12)
         self.excel.setFont(font)
+        self.excel.setCursor(QCursor(Qt.PointingHandCursor))
         self.excel.setStyleSheet(u"border: none;")
 
         self.navbarLayout.addWidget(self.excel)
@@ -67,6 +70,7 @@ class Ui_wordForm(object):
         self.word = QPushButton(self.navbar)
         self.word.setObjectName(u"word")
         self.word.setFont(font)
+        self.word.setCursor(QCursor(Qt.PointingHandCursor))
         self.word.setStyleSheet(u"border: none;")
 
         self.navbarLayout.addWidget(self.word)
@@ -74,6 +78,7 @@ class Ui_wordForm(object):
         self.pdf = QPushButton(self.navbar)
         self.pdf.setObjectName(u"pdf")
         self.pdf.setFont(font)
+        self.pdf.setCursor(QCursor(Qt.PointingHandCursor))
         self.pdf.setStyleSheet(u"border: none;")
 
         self.navbarLayout.addWidget(self.pdf)
@@ -123,6 +128,7 @@ class Ui_wordForm(object):
         self.messageEdit.setFont(font1)
         self.messageEdit.setStyleSheet(u"border: none;\n"
 "")
+        self.messageEdit.setTabChangesFocus(False)
 
         self.verticalLayout_2.addWidget(self.messageEdit)
 
@@ -131,6 +137,7 @@ class Ui_wordForm(object):
         sizePolicy.setHeightForWidth(self.takeFileTxt.sizePolicy().hasHeightForWidth())
         self.takeFileTxt.setSizePolicy(sizePolicy)
         self.takeFileTxt.setFont(font)
+        self.takeFileTxt.setCursor(QCursor(Qt.PointingHandCursor))
         self.takeFileTxt.setStyleSheet(u"background-color: rgb(79, 149, 190);\n"
 "border: none;")
 
@@ -158,7 +165,9 @@ class Ui_wordForm(object):
         self.verticalLayout_3.setContentsMargins(0, 0, 0, 0)
         self.title = QLabel(self.inputBox)
         self.title.setObjectName(u"title")
-        self.title.setFont(font)
+        font2 = QFont()
+        font2.setPointSize(12)
+        self.title.setFont(font2)
         self.title.setAlignment(Qt.AlignCenter)
 
         self.verticalLayout_3.addWidget(self.title)
@@ -180,10 +189,10 @@ class Ui_wordForm(object):
 
         self.info = QLabel(self.centralPart)
         self.info.setObjectName(u"info")
-        font2 = QFont()
-        font2.setFamily(u"Inter")
-        font2.setPointSize(10)
-        self.info.setFont(font2)
+        font3 = QFont()
+        font3.setFamily(u"Inter")
+        font3.setPointSize(10)
+        self.info.setFont(font3)
         self.info.setWordWrap(True)
 
         self.verticalLayout_4.addWidget(self.info)
@@ -193,6 +202,7 @@ class Ui_wordForm(object):
         sizePolicy.setHeightForWidth(self.compile.sizePolicy().hasHeightForWidth())
         self.compile.setSizePolicy(sizePolicy)
         self.compile.setFont(font)
+        self.compile.setCursor(QCursor(Qt.PointingHandCursor))
         self.compile.setStyleSheet(u"background-color: rgb(244, 192, 79);\n"
 "border-radius: 16px;\n"
 "")
@@ -226,7 +236,18 @@ class Ui_wordForm(object):
         self.word.setText(QCoreApplication.translate("wordForm", u"Compiler vers Word", None))
         self.pdf.setText(QCoreApplication.translate("wordForm", u"Compiler vers PDF", None))
         self.messageLabel.setText(QCoreApplication.translate("wordForm", u"<html><head/><body><p>Message \u00e0 utiliser <span style=\" color:#ff0000;\">*</span></p></body></html>", None))
-        self.messageEdit.setPlaceholderText(QCoreApplication.translate("wordForm", u"Message Type : 1. [Titre du pararagraphe] : [Contenu du paragraphe]   2. [Titre du pararagraphe] : [Contenu du paragraphe] ", None))
+        self.messageEdit.setPlaceholderText(QCoreApplication.translate("wordForm", u"Message Type :  \n"
+"1. [Titre du pararagraphe] : [Contenu du paragraphe]     \n"
+"2. [Titre du pararagraphe] : [Contenu du paragraphe]   \n"
+"Par exemple, le texte : \n"
+"1. Bonjour : Le Monde \n"
+"2. Bonjour : Le Monde  \n"
+"Donnera en Word : \n"
+"I - Bonjour :         \n"
+"        Le Monde \n"
+"II - Bonjour :\n"
+"        Le Monde\n"
+"         ", None))
         self.takeFileTxt.setText(QCoreApplication.translate("wordForm", u"Importer un fichier txt", None))
         self.title.setText(QCoreApplication.translate("wordForm", u"<html><head/><body><p>Titre du document <span style=\" color:#ff0000;\">*</span></p></body></html>", None))
         self.info.setText(QCoreApplication.translate("wordForm", u"Pour faciliter la transformation en document structur\u00e9 Word, assurez-vous d'utiliser une structure coh\u00e9rente dans votre message texte. Utilisez des num\u00e9ros ou des lettres pour identifier les diff\u00e9rentes parties de votre message et gardez la m\u00eame structure tout au long du document. Cela permettra \u00e0 l'application de cr\u00e9er un document Word bien structur\u00e9 et facile \u00e0 lire.", None))

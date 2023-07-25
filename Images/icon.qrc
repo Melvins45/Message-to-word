@@ -1,5 +1,6 @@
 <RCC>
   <qresource prefix="newPrefix">
+    <file>Message To Document 21.png</file>
     <file>Message To Document 2.png</file>
   </qresource>
 </RCC>

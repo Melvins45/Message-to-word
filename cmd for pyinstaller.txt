@@ -1,1 +1,2 @@
-pyinstaller --name "Message To Word" --onefile --windowed --icon icon.ico main.py
+pyinstaller --name "Message To Doc" --onefile --windowed --icon icon.ico main.py
+pyinstaller --name "Message To Doc" --onefile --icon icon.ico main.py
