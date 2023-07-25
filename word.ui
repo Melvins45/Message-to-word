@@ -225,6 +225,9 @@ border-radius: 12px;</string>
               <property name="alignment">
                <set>Qt::AlignCenter</set>
               </property>
+              <property name="textInteractionFlags">
+               <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByMouse</set>
+              </property>
              </widget>
             </item>
            </layout>
@@ -333,6 +336,9 @@ border: none;</string>
               <property name="alignment">
                <set>Qt::AlignCenter</set>
               </property>
+              <property name="textInteractionFlags">
+               <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByMouse</set>
+              </property>
              </widget>
             </item>
             <item>
@@ -365,11 +371,20 @@ border-radius: 16px;</string>
              <pointsize>10</pointsize>
             </font>
            </property>
+           <property name="cursor">
+            <cursorShape>ArrowCursor</cursorShape>
+           </property>
+           <property name="mouseTracking">
+            <bool>true</bool>
+           </property>
            <property name="text">
             <string>Pour faciliter la transformation en document structuré Word, assurez-vous d'utiliser une structure cohérente dans votre message texte. Utilisez des numéros ou des lettres pour identifier les différentes parties de votre message et gardez la même structure tout au long du document. Cela permettra à l'application de créer un document Word bien structuré et facile à lire.</string>
            </property>
            <property name="wordWrap">
             <bool>true</bool>
+           </property>
+           <property name="textInteractionFlags">
+            <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByMouse</set>
            </property>
           </widget>
          </item>

@@ -113,6 +113,7 @@ class Ui_excelForm(object):
         self.messageLabel.setObjectName(u"messageLabel")
         self.messageLabel.setFont(font)
         self.messageLabel.setAlignment(Qt.AlignCenter)
+        self.messageLabel.setTextInteractionFlags(Qt.LinksAccessibleByMouse|Qt.TextSelectableByMouse)
 
         self.horizontalLayout.addWidget(self.messageLabel)
 
@@ -164,6 +165,7 @@ class Ui_excelForm(object):
         self.title.setObjectName(u"title")
         self.title.setFont(font)
         self.title.setAlignment(Qt.AlignCenter)
+        self.title.setTextInteractionFlags(Qt.LinksAccessibleByMouse|Qt.TextSelectableByMouse)
 
         self.verticalLayout_3.addWidget(self.title)
 
@@ -192,6 +194,7 @@ class Ui_excelForm(object):
         self.delimiter.setObjectName(u"delimiter")
         self.delimiter.setFont(font)
         self.delimiter.setAlignment(Qt.AlignCenter)
+        self.delimiter.setTextInteractionFlags(Qt.LinksAccessibleByMouse|Qt.TextSelectableByMouse)
 
         self.verticalLayout_5.addWidget(self.delimiter)
 
@@ -238,6 +241,7 @@ class Ui_excelForm(object):
         self.info.setObjectName(u"info")
         self.info.setFont(font2)
         self.info.setWordWrap(True)
+        self.info.setTextInteractionFlags(Qt.LinksAccessibleByMouse|Qt.TextSelectableByMouse)
 
         self.verticalLayout_4.addWidget(self.info)
 

@@ -13,9 +13,9 @@ Pour faire une analyse des besoins d'un projet de site web, il est important de 
 
  6. Prioriser les besoins : Il est important de hiérarchiser les besoins en fonction de leur importance pour le succès du projet.
 
-7. Réaliser une étude de marché : Il est important de réaliser une étude de marché pour comprendre les tendances actuelles dans l'industrie et identifier les concurrents.
+ 7. Réaliser une étude de marché : Il est important de réaliser une étude de marché pour comprendre les tendances actuelles dans l'industrie et identifier les concurrents.
 
-8. Élaborer un plan d'action : Une fois que tous les besoins ont été identifiés et analysés, il est important d'élaborer un plan d'action pour répondre à ces besoins et atteindre les objectifs du projet.""",
+ 8. Élaborer un plan d'action : Une fois que tous les besoins ont été identifiés et analysés, il est important d'élaborer un plan d'action pour répondre à ces besoins et atteindre les objectifs du projet.
 
 2.Plannification : 
 Pour faire la planification d'un projet de site web, il est important de suivre les étapes suivantes :

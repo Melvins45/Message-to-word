@@ -115,6 +115,7 @@ class Ui_wordForm(object):
         self.messageLabel.setObjectName(u"messageLabel")
         self.messageLabel.setFont(font)
         self.messageLabel.setAlignment(Qt.AlignCenter)
+        self.messageLabel.setTextInteractionFlags(Qt.LinksAccessibleByMouse|Qt.TextSelectableByMouse)
 
         self.horizontalLayout.addWidget(self.messageLabel)
 
@@ -169,6 +170,7 @@ class Ui_wordForm(object):
         font2.setPointSize(12)
         self.title.setFont(font2)
         self.title.setAlignment(Qt.AlignCenter)
+        self.title.setTextInteractionFlags(Qt.LinksAccessibleByMouse|Qt.TextSelectableByMouse)
 
         self.verticalLayout_3.addWidget(self.title)
 
@@ -193,7 +195,10 @@ class Ui_wordForm(object):
         font3.setFamily(u"Inter")
         font3.setPointSize(10)
         self.info.setFont(font3)
+        self.info.setCursor(QCursor(Qt.ArrowCursor))
+        self.info.setMouseTracking(True)
         self.info.setWordWrap(True)
+        self.info.setTextInteractionFlags(Qt.LinksAccessibleByMouse|Qt.TextSelectableByMouse)
 
         self.verticalLayout_4.addWidget(self.info)
 

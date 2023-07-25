@@ -130,9 +130,10 @@ if __name__ == "__main__":
             
     def importTxtFile(page) :
         pathToExport = QFileDialog.getOpenFileName(None, gc.IMPORT_FILE_DIALOG_CAPTION, pathToMyDocuments, "TXT Files (*.txt *.csv)")
-        if pathToExport[0] != 0 :
-            with open(pathToExport[0]) as f :
-                window.__getattribute__(page).m_ui.messageEdit.setPlainText(f.read())
+        if pathToExport[0] != '' :
+            with open(pathToExport[0], encoding="utf8") as f :
+                content = f.read()
+                window.__getattribute__(page).m_ui.messageEdit.setPlainText(content)#.encode("latin1").decode())
     
     def goToPage(page : str) :
         """Go to the specified page
@@ -152,21 +153,21 @@ if __name__ == "__main__":
     window.word.m_ui.excel.clicked.connect(lambda : goToPage("excel"))
     window.word.m_ui.pdf.clicked.connect(lambda : goToPage("pdf"))
     window.word.m_ui.compile.clicked.connect(lambda : compile_to_word())
+    window.word.m_ui.takeFileTxt.clicked.connect(lambda : importTxtFile("word"))
     window.__setattr__("excel", gf.load_py("excel"))
     window.stackedWidget.addWidget(window.excel)
     window.excel.m_ui.word.clicked.connect(lambda : goToPage("word"))
     window.excel.m_ui.excel.clicked.connect(lambda : goToPage("excel"))
     window.excel.m_ui.pdf.clicked.connect(lambda : goToPage("pdf"))
     window.excel.m_ui.compile.clicked.connect(lambda : compile_to_excel())
+    window.excel.m_ui.takeFileTxt.clicked.connect(lambda : importTxtFile("excel"))
     window.__setattr__("pdf", gf.load_py("pdf"))
     window.stackedWidget.addWidget(window.pdf)
     window.pdf.m_ui.word.clicked.connect(lambda : goToPage("word"))
-    window.pdf.m_ui.excel.clicked.connect(lambda : goToPage("excel"))
+    window.pdf.m_ui.excel.clicked.connect(lambda : goToPage("excel"))          
     window.pdf.m_ui.pdf.clicked.connect(lambda : goToPage("pdf"))
     window.pdf.m_ui.compile.clicked.connect(lambda : compile_to_pdf())
-    for page in gc.PAGES.keys():
-        window.__getattribute__(page).m_ui.takeFileTxt.clicked.connect(lambda : importTxtFile(page))
-    
+    window.pdf.m_ui.takeFileTxt.clicked.connect(lambda : importTxtFile("pdf"))
     # Retrieve and change the styles of header's buttons
     headerButtonStyle = window.pdf.m_ui.pdf.styleSheet()
     headerButtonActiveStyle = headerButtonStyle + "color: rgb(79, 149, 190);"
