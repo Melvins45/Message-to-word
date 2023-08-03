@@ -142,7 +142,7 @@ def treat_text(_text: str) -> dict[float:dict[str:str]] :
         pattern_2 = re.compile(pattern_string_2)
         title = pattern.findall(_paragraph)[0] if len(pattern.findall(_paragraph)) > 0 else pattern_2.findall(_paragraph)[0]
         
-        splitted_paragraph = right_delimiter[0].splitlines(True) if len(right_delimiter) > 0 else right_delimiter_2[0].splitlines(True)
+        splitted_paragraph = right_delimiter[0].splitlines(True) if len(right_delimiter) > 0 else right_delimiter_2[0].splitlines(True) if len(right_delimiter_2) > 0 else ["\n\n"] 
         paragraph_treated = {}
         actual_paragraph_position = 0
         for i in range(len(splitted_paragraph)) :

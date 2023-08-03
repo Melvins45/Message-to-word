@@ -1,0 +1,34 @@
+1. Analyse des besoins :
+ 1. Étude des besoins des utilisateurs
+ 2. Identification des fonctionnalités nécessaires
+ 3. Rédaction du cahier des charges
+
+2. Conception :
+ 1. Définition de l'architecture de l'application
+ 2. Conception de l'interface utilisateur
+ 3. Création des diagrammes de classes et de séquences
+
+3. Développement :
+ 1. Programmation des différentes fonctionnalités
+ 2. Intégration des différentes couches logicielles
+ 3. Utilisation d'un environnement de développement intégré (IDE)
+
+4. Tests :
+ 1. Réalisation de tests unitaires pour chaque fonctionnalité
+ 2. Tests d'intégration pour vérifier les interactions entre les différentes couches logicielles
+ 3. Tests de validation pour vérifier que l'application répond aux spécifications du cahier des charges
+
+5. Déploiement :
+ 1. Installation de l'application sur les postes de travail des utilisateurs
+ 2. Configuration de l'application en fonction des besoins des utilisateurs
+ 3. Utilisation d'un outil de déploiement automatisé
+
+6. Formation :
+ 1. Formation des utilisateurs à l'utilisation de l'application
+ 2. Documentation de l'application pour faciliter son utilisation
+ 3. Organisation de sessions de formation en présentiel ou à distance
+
+7. Maintenance :
+ 1. Mise à jour régulière de l'application pour corriger les bugs et améliorer les fonctionnalités
+ 2. Gestion des demandes d'assistance des utilisateurs
+ 3. Suivi des performances de l'application et optimisation si nécessaire

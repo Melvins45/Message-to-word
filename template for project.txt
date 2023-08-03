@@ -62,3 +62,25 @@ Pour concevoir un projet de site web, il est important de suivre les étapes sui
  9. Assurer la maintenance : Il est important d'assurer la maintenance du site pour corriger les erreurs et mettre à jour le contenu et les fonctionnalités.
 
  10. Mesurer les résultats : Il est important de mesurer les résultats du site pour évaluer son efficacité et déterminer les améliorations à apporter.
+
+4. Développement du site web :
+
+ 1. Langages de programmation :
+Le site web devra être développé en utilisant les langages de programmation suivants : HTML5, CSS3, JavaScript et PHP.
+
+ 2. Conception du site web :
+Le site web devra être conçu en utilisant une approche responsive design, afin de garantir une expérience utilisateur optimale sur tous les types d'appareils (ordinateurs de bureau, tablettes et smartphones). Le design devra être moderne, attractif et cohérent avec l'image de marque de l'entreprise.
+
+ 3. Fonctionnalités du site web :
+Le site web devra comporter les fonctionnalités suivantes :
+- Un formulaire de contact permettant aux visiteurs d'envoyer un message à l'entreprise
+- Un système de gestion de contenu (CMS) permettant à l'entreprise de mettre à jour facilement les contenus du site web
+- Un système de recherche interne permettant aux visiteurs de trouver rapidement les informations qu'ils recherchent
+- Une section blog permettant à l'entreprise de publier régulièrement des articles sur son activité et ses produits/services
+- Un système de partage sur les réseaux sociaux pour encourager les visiteurs à partager les contenus du site web
+
+ 4. Hébergement du site web :
+Le site web devra être hébergé sur un serveur dédié, afin d'assurer une disponibilité maximale et une sécurité optimale des données.
+
+ 5. Maintenance du site web :
+Le développeur devra fournir une documentation complète du site web, ainsi qu'une formation à l'utilisation du CMS pour l'entreprise. Il devra également assurer la maintenance du site web pendant une période de 6 mois après sa mise en ligne, afin de garantir son bon fonctionnement et de corriger les éventuels bugs.
